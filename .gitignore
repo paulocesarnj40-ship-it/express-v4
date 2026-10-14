@@ -2,3 +2,12 @@
 /generated/prisma
 
 /generated/prisma
+
+# Dependências do Node (nunca envie essa pasta!)
+node_modules/
+
+# Pastas de build/distribuição (se usar TypeScript ou bundlers)
+dist/
+build/
+out/
+.env
