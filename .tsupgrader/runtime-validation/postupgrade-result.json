@@ -1,0 +1,27 @@
+{
+  "planHash": "75d193fda3f84f01ba39ffdfd4bbc4ab7a8955fd8f97e1ca4a8ef6fee85cfdbb",
+  "phase": "postupgrade",
+  "recordedAtUtc": "2026-09-30T08:50:19.5353106Z",
+  "retryCount": 0,
+  "resetBaseline": false,
+  "complete": true,
+  "result": {
+    "setupSucceeded": false,
+    "setupDurationMs": 2279,
+    "setupFailureOutput": "setup step 0 \u0027npm\u0027 failed (exit=1, timedOut=False)\nnpm error code EUSAGE\nnpm error\nnpm error \u0060npm ci\u0060 can only install packages when your package.json and package-lock.json or npm-shrinkwrap.json are in sync. Please update your lock file with \u0060npm install\u0060 before continuing.\nnpm error\nnpm error Missing: vite@8.3.1 from lock file\nnpm error Missing: lightningcss@1.33.0 from lock file\nnpm error Missing: postcss@8.5.28 from lock file\nnpm error Missing: rolldown@1.2.11 from lock file\nnpm error Missing: detect-libc@2.1.2 from lock file\nnpm error Missing: lightningcss-android-arm64@1.33.0 from lock file\nnpm error Missing: lightningcss-darwin-arm64@1.33.0 from lock file\nnpm error Missing: lightningcss-darwin-x64@1.33.0 from lock file\nnpm error Missing: lightningcss-freebsd-x64@1.33.0 from lock file\nnpm error Missing: lightningcss-linux-arm-gnueabihf@1.33.0 from lock file\nnpm error Missing: lightningcss-linux-arm64-gnu@1.33.0 from lock file\nnpm error Missing: lightningcss-linux-arm64-musl@1.33.0 from lock file\nnpm error Missing: lightningcss-linux-x64-gnu@1.33.0 from lock file\nnpm error Missing: lightningcss-linux-x64-musl@1.33.0 from lock file\nnpm error Missing: lightningcss-win32-arm64-msvc@1.33.0 from lock file\nnpm error Missing: lightningcss-win32-x64-msvc@1.33.0 from lock file\nnpm error Missing: nanoid@3.3.19 from lock file\nnpm error Missing: picocolors@1.1.1 from lock file\nnpm error Missing: source-map-js@1.2.1 from lock file\nnpm error Missing: @oxc-project/types@0.151.0 from lock file\nnpm error Missing: @rolldown/binding-android-arm-eabi@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-android-arm64@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-darwin-arm64@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-darwin-x64@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-freebsd-x64@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-linux-arm-gnueabihf@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-linux-arm64-gnu@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-linux-arm64-musl@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-linux-ppc64-gnu@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-linux-s390x-gnu@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-linux-x64-gnu@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-linux-x64-musl@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-openharmony-arm64@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-win32-arm64-msvc@1.2.11 from lock file\nnpm error Missing: @rolldown/binding-win32-x64-msvc@1.2.11 from lock file\nnpm error Missing: @rolldown/pluginutils@1.0.1 from lock file\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy \u003Choisted|nested|shallow|linked\u003E] [--legacy-bundling]\nnpm error [--global-style] [--omit \u003Cdev|optional|peer\u003E [--omit \u003Cdev|optional|peer\u003E ...]]\nnpm error [--include \u003Cprod|dev|optional|peer\u003E [--include \u003Cprod|dev|optional|peer\u003E ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts]\nnpm error [--allow-directory \u003Call|none|root\u003E] [--allow-file \u003Call|none|root\u003E]\nnpm error [--allow-git \u003Call|none|root\u003E] [--allow-remote \u003Call|none|root\u003E]\nnpm error [--allow-scripts \u003Cpackage-list\u003E [--allow-scripts \u003Cpackage-list\u003E ...]]\nnpm error [--strict-allow-scripts] [--dangerously-allow-all-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace \u003Cworkspace-name\u003E [-w|--workspace \u003Cworkspace-name\u003E ...]]\nnpm error [--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error   --install-strategy\nnpm error     Sets the strategy for installing packages in node_modules.\nnpm error\nnpm error   --legacy-bundling\nnpm error     Instead of hoisting package installs in \u0060node_modules\u0060, install packages\nnpm error\nnpm error   --global-style\nnpm error     Only install direct dependencies in the top level \u0060node_modules\u0060,\nnpm error\nnpm error   --omit\nnpm error     Dependency types to omit from the installation tree on disk.\nnpm error\nnpm error   --include\nnp\n\u2026[truncated]",
+    "assertions": [],
+    "executions": [
+      {
+        "source": "setup[0]",
+        "resolvedExecutable": "/home/codespace/nvm/current/bin/npm",
+        "args": [
+          "ci"
+        ],
+        "cwd": "/workspaces/codespaces-blank",
+        "env": {},
+        "prependPath": [],
+        "platform": "linux"
+      }
+    ]
+  }
+}

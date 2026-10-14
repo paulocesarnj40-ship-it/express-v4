@@ -1,0 +1,26 @@
+### Create User
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "pato",
+    "email": "pato@com.br",
+    "password": "Ps281810@"
+}
+
+### Delete All Users
+DELETE http://localhost:3000/api/auth
+
+
+### Login User
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "paulo@com.br",
+    "password": "Ps281810@"
+}   
+
+### Get User Profile
+GET http://localhost:3000/api/auth/profile
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMmI4MTFhYi1jMWMyLTRjNzMtYTQxYS1jNmQxNjMyNmI3MDYiLCJpYXQiOjE3OTE5OTI0NTgsImV4cCI6MTc5MTk5NjA1OH0.VoB8hIx6KTCw-i7etO4hgsDFWTqP3rkjsr3Zp3Hzedc

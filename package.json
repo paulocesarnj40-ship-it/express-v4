@@ -1,0 +1,50 @@
+{
+  "name": "c",
+  "version": "1.0.0",
+  "description": "Exercícios backend utilizando node ",
+  "keywords": [],
+  "license": "ISC",
+  "type": "module",
+  "main": "serve.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx --watch src/server.js",
+    "postinstall": "prisma skills sync || exit 0",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@eslint/js": "^10.0.1",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@prisma/client": "^6.19.3",
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.6.4",
+    "@typescript-eslint/eslint-plugin": "^8.71.1",
+    "@typescript-eslint/parser": "^8.71.1",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.9",
+    "prisma": "^6.19.3",
+    "tsx": "^4.23.15",
+    "typescript": "6.0.3"
+  },
+  "_moduleAliases": {
+    "@controllers": "dist/controllers",
+    "@routes": "dist/routes",
+    "@services": "dist/services",
+    "@schema": "dist/schema",
+    "@middlewares": "dist/middlewares",
+    "@repositories": "dist/repositories",
+    "@utils": "dist/utils",
+    "@errors": "dist/errors",
+    "@config": "dist/config"
+  }
+}
