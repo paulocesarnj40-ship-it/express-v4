@@ -12,7 +12,7 @@ declare global {
     }
   }
 }
-
+// Controller para autenticação de usuários
 export class AuthController {
   constructor(private authService: UserService) {}
 
