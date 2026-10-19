@@ -1,10 +1,10 @@
-import { Router } from 'express';
-import { validate } from '@middlewares/validate';
-import { createUserSchema, loginUserSchema } from '@schema/createUserSchema';
-import { UserRepository } from '@repositories/UserRepository';
-import { UserService } from '@services/UserService';
 import { AuthController } from '@controllers/AuthController';
-import { verifyJWT } from '@middlewares/authMiddlewar';
+import { authMiddleware } from '@middlewares/authMiddlewar';
+import { validate } from '@middlewares/validate';
+import { UserRepository } from '@repositories/UserRepository';
+import { createUserSchema, loginUserSchema } from '@schema/createUserSchema';
+import { UserService } from '@services/UserService';
+import { Router } from 'express';
 
 export function createUserRouter(): Router {
   const router = Router();
@@ -34,7 +34,7 @@ export function createUserRouter(): Router {
   );
 
   // Rota privada para obter informações do usuário logado
-  router.get('/profile', verifyJWT, (req, res) =>
+  router.get('/profile', authMiddleware, (req, res) =>
     userController.profile(req, res),
      );
 

@@ -1,8 +1,8 @@
-import jwt from 'jsonwebtoken';
+import { generateToken } from '@config/auth';
 import { IUserRepository, User } from '@repositories/IUserRepository';
-import { hashPassword, comparePassword } from '@utils/passwordService';
+import { comparePassword, hashPassword } from '@utils/passwordService';
 
-type AuthenticatedUser = User & { token: string };
+type AuthenticatedUser = Omit<User, 'password'> & { token: string };
 
 export class UserService {
   constructor(private userRepository: IUserRepository) {}
@@ -31,31 +31,26 @@ export class UserService {
   async executeLogin(
     email: string,
     password: string,
-  ): Promise<AuthenticatedUser> {
+  ): Promise<any> { // Substitua 'any' pela interface correta do seu retorno (ex: AuthenticatedUser)
     const user = await this.userRepository.findByEmail(email);
     if (!user) {
-      console.log('User not found');
       throw new Error('User not found');
     }
+
     const isPasswordValid = await comparePassword(password, user.password);
     if (!isPasswordValid) {
       throw new Error('Invalid password');
     }
-    const token = jwt.sign(
-      { userId: user.id },
-      process.env.JWT_SECRET || 'default_secret',
-      {
-        expiresIn: '1h',
-      },
-    );
-    console.log('User logged in:', user, token);
-    return { ...user, token: token };
+
+    // Payload enxuto e seguro (nunca coloque senha aqui!)
+    const payload = { id: user.id, email: user.email };
+    const token = generateToken(payload);
+
+    const { password: _password, ...authenticatedUser } = user;
+    return { ...authenticatedUser, token };
   }
 
-  //async executeDeleteAllUsers(): Promise<void> {
-  // await this.userRepository.deleteAll();
-  // console.log('All users deleted');
-  //}
+
 
   async executeFindAllUsers(): Promise<User[]> {
     const users = await this.userRepository.findAll();
@@ -63,3 +58,4 @@ export class UserService {
     return users;
   }
 }
+

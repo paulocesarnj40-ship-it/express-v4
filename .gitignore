@@ -11,3 +11,4 @@ dist/
 build/ 
 out/
 .env
+docs    

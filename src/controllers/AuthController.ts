@@ -5,7 +5,7 @@ declare global {
   namespace Express {
     interface Request {
       user?: {
-        id: string;
+        id?: string;
         name?: string;
         username?: string;
       };
@@ -41,23 +41,8 @@ export class AuthController {
 
   // Rota para obter o perfil do usuário autenticado
   async profile(req: Request, res: Response) {
-  // 1. Primeiro você extrai o usuário da requisição
-  const user = req.user as {
-    id: string;
-    name?: string;
-    username?: string;
-  } | undefined; // Adicionado 'undefined' para o caso de não estar autenticado
-
-  // 2. Depois você faz a validação
-  if (!user) {
-    return res.status(401).json({ error: 'Usuário não autenticado.' });
+  res.status(200).json({ msg: 'Perfil do usuário autenticado', user: req.user });
   }
-
-  // 3. Agora você pode usar as propriedades com segurança
-  const name = user.name ?? user.username ?? 'Usuário';
-  console.log('cliente autenticado:', user.id, name);
-  return res.status(200).json({ id: user.id, name }).send('Perfil do usuário autenticado');
-}
 
 
   // Rota para logout do usuário

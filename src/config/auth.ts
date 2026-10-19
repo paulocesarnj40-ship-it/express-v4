@@ -1,17 +1,28 @@
-import jwt from 'jsonwebtoken';
+import jwt, { type SignOptions } from 'jsonwebtoken';
 
 type JwtPayload = Record<string, unknown>;
-type Secret = string;
-type Expiration = string | number;
+type Expiration = SignOptions['expiresIn'];
 
-const JWT_SECRET=process.env.JWT_SECRET || 'your-secret-key';
-//const JWT_EXPIRATION: Expiration = process.env.JWT_EXPIRATION || '1h';
-
+// Função auxiliar para garantir que a chave secreta existe e é única
+const getSecretKey = (): string => {
+  const secret = process.env.JWT_SECRET;
+  
+  if (!secret) {
+    throw new Error('JWT_SECRET is not configured in environment variables');
+  }
+  
+  return secret;
+};
 
 export function generateToken(payload: JwtPayload): string {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '60'});
+  const secret = getSecretKey();
+  const expiration: Expiration = (process.env.JWT_EXPIRATION as Expiration | undefined) || '1h';
+  
+  return jwt.sign(payload, secret, { expiresIn: expiration });
 }
 
 export function verifyToken<T extends object | string = JwtPayload | string>(token: string): T {
-  return jwt.verify(token, JWT_SECRET) as T;
-} 
+  const secret = getSecretKey();
+  
+  return jwt.verify(token, secret) as T;
+}
