@@ -41,9 +41,10 @@ export class AuthController {
 
   // Rota para obter o perfil do usuário autenticado
   async profile(req: Request, res: Response) {
-  res.status(200).json({ msg: 'Perfil do usuário autenticado', user: req.user });
+    res
+      .status(200)
+      .json({ msg: 'Perfil do usuário autenticado', user: req.user });
   }
-
 
   // Rota para logout do usuário
   async logout(req: Request, res: Response) {

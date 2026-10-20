@@ -36,7 +36,11 @@ export function createUserRouter(): Router {
   // Rota privada para obter informações do usuário logado
   router.get('/profile', authMiddleware, (req, res) =>
     userController.profile(req, res),
-     );
+  );
+
+  router.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', timestamp: new Date() });
+  });
 
   return router;
 }

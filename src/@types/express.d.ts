@@ -1,5 +1,5 @@
 // src/@types/express.d.ts
-export { };
+export {};
 
 declare global {
   namespace Express {

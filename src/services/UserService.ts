@@ -28,10 +28,8 @@ export class UserService {
   }
 
   // Rota para login do usuário
-  async executeLogin(
-    email: string,
-    password: string,
-  ): Promise<any> { // Substitua 'any' pela interface correta do seu retorno (ex: AuthenticatedUser)
+  async executeLogin(email: string, password: string): Promise<any> {
+    // Substitua 'any' pela interface correta do seu retorno (ex: AuthenticatedUser)
     const user = await this.userRepository.findByEmail(email);
     if (!user) {
       throw new Error('User not found');
@@ -50,12 +48,9 @@ export class UserService {
     return { ...authenticatedUser, token };
   }
 
-
-
   async executeFindAllUsers(): Promise<User[]> {
     const users = await this.userRepository.findAll();
     console.log('All users:', users);
     return users;
   }
 }
-

@@ -24,3 +24,6 @@ Content-Type: application/json
 ### Get User Profile
 GET http://localhost:3000/api/auth/profile
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyYjgxMWFiLWMxYzItNGM3My1hNDFhLWM2ZDE2MzI2YjcwNiIsImVtYWlsIjoicGF1bG9AY29tLmJyIiwiaWF0IjoxNzkyMzk5MDIxLCJleHAiOjE3OTI0MDI2MjF9.veqVDXrRvSIGEhdPo6_D_9xh2fx3qmqVDuu-coBy72w
+
+### Health Check
+GET http://localhost:3000/api/auth/health   

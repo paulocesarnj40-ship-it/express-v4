@@ -10,7 +10,9 @@ export async function authMiddleware(
 
   // 1. Verifica se o header existe e começa com "Bearer "
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
-    return res.status(401).json({ error: 'Token não fornecido ou mal formatado' });
+    return res
+      .status(401)
+      .json({ error: 'Token não fornecido ou mal formatado' });
   }
 
   // 2. Extração simplificada e limpa
@@ -31,7 +33,8 @@ export async function authMiddleware(
     req.user = {
       id: typeof decoded.id === 'string' ? decoded.id : undefined,
       name: typeof decoded.name === 'string' ? decoded.name : undefined,
-      username: typeof decoded.username === 'string' ? decoded.username : undefined,
+      username:
+        typeof decoded.username === 'string' ? decoded.username : undefined,
     };
 
     return next();
