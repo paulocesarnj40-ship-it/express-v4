@@ -47,15 +47,15 @@ export class AuthController {
   }
 
   // Rota para logout do usuário
-  async logout(req: Request, res: Response) {
-    if (!req.user) {
-      return res.status(401).json({ error: 'Usuário não autenticado.' });
-    }
+  async logout(req: Request, res: Response): Promise<Response> {
+    const token = req.headers.authorization?.split(' ')[1];
 
-    // Implement logout logic here, e.g., invalidate JWT token
-    res.status(200).json({ message: 'Usuário deslogado com sucesso.' });
+    await this.authService.executeLogout(req.user?.id, token);
+
+    return res.status(200).json({ message: 'Usuário deslogado com sucesso.' });
   }
 
+    
   // Rota para solicitar redefinição de senha
   async forgotPassword(req: Request, res: Response) {
     const { email } = req.body;

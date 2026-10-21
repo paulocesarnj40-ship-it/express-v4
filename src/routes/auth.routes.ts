@@ -38,6 +38,10 @@ export function createUserRouter(): Router {
     userController.profile(req, res),
   );
 
+  router.post('/logout', authMiddleware, (req, res) =>
+    userController.logout(req, res),
+  );
+  
   router.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok', timestamp: new Date() });
   });

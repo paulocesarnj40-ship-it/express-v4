@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { verifyToken } from '../config/auth';
+import{tokenBlacklist} from '@utils/TokenBlacklist';
 
 export async function authMiddleware(
   req: Request,
@@ -23,6 +24,11 @@ export async function authMiddleware(
     return res.status(401).json({ error: 'Token string está vazia' });
   }
 
+  // 4. Verifica se o token está na blacklist
+  if (tokenBlacklist.has(token)) {
+    return res.status(401).json({ error: 'Token revogado! Faça login novamente.' });
+  }
+
   try {
     // 4. Verifica o token e anexa no request para uso posterior nos controllers
     const decoded = verifyToken(token);
@@ -41,7 +47,7 @@ export async function authMiddleware(
   } catch (error) {
     //console.error('Token inválido ou expirado:', error);
     //return res.status(401).json({ error: 'Token inválido ou expirado' });
-    console.log(token, 'Token inválido ou expirado:', error);
+    ///console.log(token, 'Token inválido ou expirado:', error);
     return res.status(401).json({ error: 'Token inválido ou expirado' });
   }
 }
